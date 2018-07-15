@@ -17,7 +17,7 @@ class MenuMiddleware(MiddlewareMixin):
         :param request:
         :return:
         """
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             user = request.user
             permissions_item_list = user.roles.values('permissions__id',
                                                       'permissions__title',

@@ -105,7 +105,7 @@ class AssetFile(models.Model):
 
 
 class AssetLog(models.Model):
-    asset = models.ForeignKey(Asset, verbose_name="资产")
+    asset = models.ForeignKey(Asset,on_delete=models.CASCADE,verbose_name="资产")
     operator = models.CharField(max_length=20, verbose_name="操作人")
     desc = models.TextField(default="", verbose_name="备注")
     add_time = models.DateTimeField(auto_now_add=True, verbose_name="添加时间")

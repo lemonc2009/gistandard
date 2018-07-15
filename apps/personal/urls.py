@@ -2,5 +2,6 @@
 # __author__ : RobbieHan
 # __data__  : 2017/12/8
 
+app_name='personal'
 
 

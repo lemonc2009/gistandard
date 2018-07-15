@@ -6,6 +6,8 @@ from django.conf.urls import url
 
 from rbac import views_role, views_menu
 
+app_name='rbac'
+
 urlpatterns = [
 
     # 组织架构的改删查操作

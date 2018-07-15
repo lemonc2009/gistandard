@@ -1,7 +1,7 @@
 from django import forms
 from django.apps import apps
 from django.core.exceptions import PermissionDenied
-from django.core.urlresolvers import reverse, NoReverseMatch
+from django.urls import reverse, NoReverseMatch
 from django.template.context_processors import csrf
 from django.db.models.base import ModelBase
 from django.forms.forms import DeclarativeFieldsMetaclass
@@ -281,8 +281,8 @@ class ModelChoiceField(forms.ChoiceField):
                  help_text=None, *args, **kwargs):
         # Call Field instead of ChoiceField __init__() because we don't need
         # ChoiceField.__init__().
-        forms.Field.__init__(self, required, widget, label, initial, help_text,
-                             *args, **kwargs)
+        forms.Field.__init__(self)
+        # forms.Field.__init__(self, required, widget, label, initial, help_text, *args, **kwargs)
         self.widget.choices = self.choices
 
     def __deepcopy__(self, memo):

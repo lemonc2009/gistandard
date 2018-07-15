@@ -11,7 +11,7 @@ User = get_user_model()
 
 from django.views.generic.base import View
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.hashers import make_password
@@ -42,7 +42,7 @@ class UserBackend(ModelBackend):
 
 class IndexView(LoginRequiredMixin, View):
     def get(self, request):
-        # if request.user.is_authenticated():
+        # if request.user.is_authenticated:
         #     return render(request, 'index.html')
         # else:
         #     return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
@@ -54,7 +54,7 @@ class LoginView(View):
     '''
 
     def get(self, request):
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             ret = (SystemSetup.getSystemSetupLastData())
             return render(request, 'system/users/login.html', ret)
         else:

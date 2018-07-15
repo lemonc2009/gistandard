@@ -6,6 +6,8 @@ from django.conf.urls import url
 
 from adm import views_bsm, views_equipment
 
+app_name='adm'
+
 urlpatterns = [
 
     # 基础管理：供应商管理，品牌管理，资产类型管理

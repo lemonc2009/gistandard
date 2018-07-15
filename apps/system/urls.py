@@ -6,6 +6,8 @@ from django.conf.urls import url
 
 from system import views
 
+app_name='system'
+
 urlpatterns = [
     # 系统工具
     url(r'^system_setup/$', views.SystemSetupView.as_view(), name="system_setup"),

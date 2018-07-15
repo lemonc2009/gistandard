@@ -19,9 +19,9 @@ class UserProfile(AbstractUser):
     email = models.EmailField(max_length=100, verbose_name="邮箱")
     image = models.ImageField(upload_to="image/%Y/%m", default="image/default.jpg", max_length=100, null=True,
                               blank=True)
-    department = models.ForeignKey("Structure", null=True, blank=True, verbose_name="部门")
+    department = models.ForeignKey("Structure",on_delete=models.CASCADE, null=True, blank=True, verbose_name="部门")
     post = models.CharField(max_length=50, null=True, blank=True, verbose_name="职位")
-    superior = models.ForeignKey("self", null=True, blank=True, verbose_name="上级主管")
+    superior = models.ForeignKey("self",on_delete=models.CASCADE, null=True, blank=True, verbose_name="上级主管")
     roles = models.ManyToManyField("rbac.Role", verbose_name="角色", blank=True)
     joined_date = models.DateField(null=True, blank=True, verbose_name="入职日期")
 
@@ -41,7 +41,7 @@ class Structure(models.Model):
     type_choices = (("firm", "公司"), ("department", "部门"))
     title = models.CharField(max_length=60, verbose_name="名称")
     type = models.CharField(max_length=20, choices=type_choices, default="department", verbose_name="类型")
-    parent = models.ForeignKey("self", null=True, blank=True, verbose_name="父类架构")
+    parent = models.ForeignKey("self",on_delete=models.CASCADE, null=True, blank=True, verbose_name="父类架构")
 
     class Meta:
         verbose_name = "组织架构"

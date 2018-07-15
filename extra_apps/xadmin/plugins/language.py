@@ -21,6 +21,6 @@ class SetLangView(BaseAdminView):
             del request.session['nav_menu']
         return set_language(request)
 
-if settings.LANGUAGES and 'django.middleware.locale.LocaleMiddleware' in settings.MIDDLEWARE_CLASSES:
+if settings.LANGUAGES and 'django.middleware.locale.LocaleMiddleware' in settings.MIDDLEWARE:
     site.register_plugin(SetLangNavPlugin, CommAdminView)
     site.register_view(r'^i18n/setlang/$', SetLangView, 'set_language')

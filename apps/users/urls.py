@@ -6,6 +6,8 @@ from django.conf.urls import url
 
 from users import views_user, views_structure
 
+app_name='users'
+
 urlpatterns = [
     # 用户增改删查操作
     url(r'^user/$', views_user.UserView.as_view(), name="user"),

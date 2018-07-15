@@ -6,6 +6,8 @@ from django.conf.urls import url
 
 from adm import views_equipment
 
+app_name='equipment'
+
 urlpatterns = [
 
     url(r'^$', views_equipment.EquipmentView.as_view(), name='equipment'),
